@@ -1,0 +1,13 @@
+{
+  "name": "node-db4-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/BenHall-7/node-db4-project.git",
+  "author": "BenHall-7 <benjaminjahall@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.20.15",
+    "sqlite3": "^4.1.1"
+  }
+}
