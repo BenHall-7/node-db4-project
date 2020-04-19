@@ -5,18 +5,24 @@ function getRecipes() {
 }
 
 function getIngredients(recipe_id) {
-    db("recipe_ingredients")
-        .join("recipes", "recipes.id", "recipe_ingredients.id")
-        .join("ingredients", "ingredients.id", "ingredients_id")
+    return db("recipe_ingredients")
+        .where({recipe_id})
+        .join("ingredients", "ingredients.id", "recipe_ingredients.ingredient_id")
+        .select(
+            "recipe_ingredients.id",
+            "recipe_ingredients.amount",
+            "ingredients.name",
+        )
 }
 
 function getInstructions(recipe_id) {
-    db("recipe_steps")
+    return db("recipe_steps")
+        .where({recipe_id})
         .join("recipes", "recipes.id", "recipe_steps.recipe_id")
 }
 
 module.exports = {
     getRecipes,
-    getInstructions,
+    getIngredients,
     getInstructions
 }
