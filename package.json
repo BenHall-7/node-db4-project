@@ -5,9 +5,14 @@
   "repository": "https://github.com/BenHall-7/node-db4-project.git",
   "author": "BenHall-7 <benjaminjahall@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
+    "http-status-codes": "^1.4.0",
     "knex": "^0.20.15",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.1.1"
   }
 }
