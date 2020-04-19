@@ -5,21 +5,10 @@ exports.up = function(knex) {
             tbl.increments();
             tbl.string("name").unique();
         })
-        .createTable("foods", tbl => {
-            tbl.increments();
-            tbl.string("name").unique();
-        })
         .createTable("recipes", tbl => {
             tbl.increments();
             tbl.string("name").unique();
             tbl.string("author").nullable();
-            tbl.integer("food_id")
-                .unsigned()
-                .notNullable()
-                .references("id")
-                .inTable("foods")
-                .onUpdate('SET NULL')
-                .onDelete('SET NULL');
         })
         .createTable("recipe_steps", tbl => {
             tbl.increments();
