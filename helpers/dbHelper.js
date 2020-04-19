@@ -14,3 +14,9 @@ function getInstructions(recipe_id) {
     db("recipe_steps")
         .join("recipes", "recipes.id", "recipe_steps.recipe_id")
 }
+
+module.exports = {
+    getRecipes,
+    getShoppingList,
+    getInstructions
+}
