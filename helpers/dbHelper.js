@@ -15,14 +15,26 @@ function getIngredients(recipe_id) {
         )
 }
 
-function getInstructions(recipe_id) {
+function getSteps(recipe_id) {
     return db("recipe_steps")
         .where({recipe_id})
-        .join("recipes", "recipes.id", "recipe_steps.recipe_id")
+        .select(
+            "recipe_steps.id",
+            "recipe_steps.description",
+            "recipe_steps.order"
+        )
+}
+
+function getRecipesByIngredient(ingredient_id) {
+    return db("recipe_ingredients")
+        .where({ingredient_id})
+        .join("recipes", "recipes.id", "recipe_ingredients.recipe_id")
+        .select("recipes.*")
 }
 
 module.exports = {
     getRecipes,
     getIngredients,
-    getInstructions
+    getSteps,
+    getRecipesByIngredient
 }
